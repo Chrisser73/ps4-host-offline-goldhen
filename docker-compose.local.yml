@@ -1,0 +1,6 @@
+services:
+  web:
+    image: ps4-host-local:latest
+    build: .
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
