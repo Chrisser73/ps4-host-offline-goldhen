@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 124 1688 342" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">  <rect width="1720" height="520" fill="transparent"/>
+
+  <!-- Arrows between cards -->
+  <g fill="none" stroke="#f2b01e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <g id="a"><path d="M326 295 H352"/><path d="M342 282 L356 295 L342 308"/></g>
+    <use href="#a" x="344"/><use href="#a" x="688"/><use href="#a" x="1032"/>
+  </g>
+
+  <!-- 1 Docker Local Host -->
+  <g transform="translate(22,0)">
+    <rect x="0" y="130" width="300" height="330" rx="26" fill="#eaf4ff" stroke="#1d8bf1" stroke-width="4"/>
+    <circle cx="50" cy="185" r="28" fill="#1d8bf1"/><text x="50" y="195" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">1</text>
+    <text x="92" y="193" font-size="22" font-weight="700" fill="#1e2b3d">Docker Local Host</text>
+    <rect x="70" y="215" width="86" height="150" rx="12" fill="#1e2b3d"/>
+    <rect x="84" y="240" width="40" height="5" rx="2.5" fill="#6aa9ff"/><rect x="84" y="254" width="30" height="5" rx="2.5" fill="#9bb4d0"/>
+    <circle cx="113" cy="340" r="7" fill="#8da0b5"/>
+    <g fill="#3b9cff" stroke="#1d6fd6" stroke-width="3"><rect x="160" y="325" width="44" height="44" rx="6"/><rect x="208" y="325" width="44" height="44" rx="6"/><rect x="184" y="279" width="44" height="44" rx="6"/></g>
+    <text x="150" y="425" text-anchor="middle" font-size="20" fill="#475569">PSPULSE / ps4 hosts</text>
+  </g>
+
+  <!-- 2 DNS -->
+  <g transform="translate(366,0)">
+    <rect x="0" y="130" width="300" height="330" rx="26" fill="#e8faf1" stroke="#1fb574" stroke-width="4"/>
+    <circle cx="50" cy="185" r="28" fill="#1fb574"/><text x="50" y="195" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">2</text>
+    <text x="92" y="193" font-size="22" font-weight="700" fill="#1e2b3d">DNS</text>
+    <path d="M150 212 L218 240 V292 C218 338 150 370 150 370 C150 370 82 338 82 292 V240 Z" fill="#1fb574"/>
+    <path d="M150 212 L218 240 V292 C218 338 150 370 150 370 Z" fill="#16a064"/>
+    <g fill="none" stroke="#fff" stroke-width="5"><circle cx="150" cy="288" r="34"/><ellipse cx="150" cy="288" rx="15" ry="34"/><line x1="116" y1="288" x2="184" y2="288"/></g>
+    <text x="150" y="425" text-anchor="middle" font-size="20" fill="#475569">Rewrite + Update block</text>
+  </g>
+
+  <!-- 3 Reverse Proxy -->
+  <g transform="translate(710,0)">
+    <rect x="0" y="130" width="300" height="330" rx="26" fill="#eaf4ff" stroke="#1d8bf1" stroke-width="4"/>
+    <circle cx="50" cy="185" r="28" fill="#1d8bf1"/><text x="50" y="195" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">3</text>
+    <text x="92" y="193" font-size="22" font-weight="700" fill="#1e2b3d">Reverse Proxy</text>
+    <g fill="#1e2b3d"><rect x="85" y="215" width="130" height="44" rx="12"/><rect x="85" y="266" width="130" height="44" rx="12"/><rect x="85" y="317" width="130" height="44" rx="12"/></g>
+    <g fill="#4a5a70"><rect x="100" y="229" width="40" height="16" rx="5"/><rect x="100" y="280" width="40" height="16" rx="5"/><rect x="100" y="331" width="40" height="16" rx="5"/></g>
+    <circle cx="195" cy="237" r="7" fill="#22c55e"/><circle cx="195" cy="288" r="7" fill="#1d8bf1"/><circle cx="195" cy="339" r="7" fill="#1d8bf1"/>
+    <text x="150" y="425" text-anchor="middle" font-size="20" fill="#475569">NPM / 302 Redirect</text>
+  </g>
+
+  <!-- 4 PS4 User Guide / Browser -->
+  <g transform="translate(1054,0)">
+    <rect x="0" y="130" width="300" height="330" rx="26" fill="#f1ecff" stroke="#7c4dec" stroke-width="4"/>
+    <circle cx="50" cy="185" r="28" fill="#7c4dec"/><text x="50" y="195" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">4</text>
+    <text font-size="22" font-weight="700" fill="#1e2b3d"><tspan x="92" y="178">User Guide /</tspan><tspan x="92" y="204">Browser</tspan></text>
+    <path d="M150 240 C138 228 120 228 108 234 V282 C120 276 138 276 150 288 C162 276 180 276 192 282 V234 C180 228 162 228 150 240 Z" fill="none" stroke="#7c4dec" stroke-width="6" stroke-linejoin="round"/>
+    <line x1="150" y1="240" x2="150" y2="288" stroke="#7c4dec" stroke-width="6"/><polygon points="60,340 95,306 235,306 245,326 245,357 60,357" fill="#1e2b3d"/>
+    <polygon points="95,306 235,306 240,316 85,316" fill="#33455f"/>
+    <rect x="180" y="334" width="76" height="42" rx="20" fill="#2b3a52" stroke="#fff" stroke-width="3"/>
+    <g fill="#fff"><rect x="195" y="353" width="16" height="4" rx="2"/><rect x="201" y="347" width="4" height="16" rx="2"/><circle cx="234" cy="350" r="4"/><circle cx="243" cy="358" r="4"/></g>
+    <text x="150" y="425" text-anchor="middle" font-size="20" fill="#475569">PS4 exploit entry</text>
+  </g>
+
+  <!-- 5 GoldHEN Host -->
+  <g transform="translate(1398,0)">
+    <rect x="0" y="130" width="300" height="330" rx="26" fill="#fff8e6" stroke="#f2b01e" stroke-width="4"/>
+    <circle cx="50" cy="185" r="28" fill="#f2b01e"/><text x="50" y="195" text-anchor="middle" font-size="28" font-weight="700" fill="#fff">5</text>
+    <text x="92" y="193" font-size="22" font-weight="700" fill="#1e2b3d">GoldHEN Host</text>
+    <rect x="60" y="215" width="180" height="150" rx="12" fill="#f8fafc" stroke="#1e2b3d" stroke-width="5"/>
+    <rect x="60" y="215" width="180" height="28" rx="12" fill="#1e2b3d"/><rect x="60" y="229" width="180" height="14" fill="#1e2b3d"/>
+    <circle cx="80" cy="229" r="4.5" fill="#ef4444"/><circle cx="95" cy="229" r="4.5" fill="#facc15"/><circle cx="110" cy="229" r="4.5" fill="#22c55e"/>
+    <rect x="105" y="266" width="90" height="82" rx="10" fill="#f2b01e"/>
+    <polygon points="155,274 124,311 147,311 140,340 176,298 153,298" fill="#fff"/>
+    <text x="150" y="425" text-anchor="middle" font-size="20" fill="#475569">Local exploit page</text>
+  </g>
+</svg>
