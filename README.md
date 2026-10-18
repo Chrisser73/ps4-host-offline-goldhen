@@ -12,7 +12,7 @@ cd ps4-host-offline-goldhen
 docker compose up -d
 ```
 
-Open `http://<your-pi-ip>:8135/1352/index.html` in the PS4 browser (for example, `http://192.168.178.166:8135/1352/index.html`). The home page is at `http://<your-pi-ip>:8135/`. You can check the manifest response with `curl -I http://<your-pi-ip>:8135/1352/cache.manifest`. Test offline caching on the PS4 itself; serving the correct MIME type alone does not guarantee that it will work. This setup does not redirect the PS4 User's Guide or change DNS settings.
+Open `http://<your-pi-ip>:8135/1352/index.html` in the PS4 browser. The home page is at `http://<your-pi-ip>:8135/`. You can check the manifest response with `curl -I http://<your-pi-ip>:8135/1352/cache.manifest`. Test offline caching on the PS4 itself; serving the correct MIME type alone does not guarantee that it will work. This setup does not redirect the PS4 User's Guide or change DNS settings.
 
 The Compose service pulls `ghcr.io/chrisser73/ps4-host-offline-goldhen:latest` for either `linux/arm64` or `linux/amd64`. The web files are baked into the image, not mounted from the host, so image updates also update the served site. Make the GHCR package public (or authenticate Docker to GHCR) before pulling if the package is private.
 
