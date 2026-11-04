@@ -3,6 +3,14 @@ name: Build and publish image
 on:
   push:
     branches: [main]
+    paths:
+      - '**'
+      - '!**.md'
+      - '!docs/**'
+      - '!Makefile'
+      - '!LICENSE'
+      - '!.github/**'
+      - '.github/workflows/**'
 
 permissions:
   contents: read
