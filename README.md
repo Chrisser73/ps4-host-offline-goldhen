@@ -4,18 +4,18 @@
 
 ###
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-Ko--fi-967B69?style=for-the-badge&logo=ko-fi&logoColor=white&labelColor=4F3727&color=F6D55C)](https://ko-fi.com/crysercore)
-###
-</div>
 
-<img src="https://img.shields.io/badge/platform-PlayStation%204-f5e693?style=for-the-badge&logo=playstation&logoColor=ffffff" alt="Platform: PlayStation 4">
-<img src="https://img.shields.io/badge/firmware-5.05--14.00-151515?style=for-the-badge&color=f5e693" alt="Firmware range: 5.05 to 14.00"> <img src="https://img.shields.io/badge/Exploit-WebKit-151515?style=for-the-badge&color=f5e693" alt="WebKit">
+
+![Platform: PlayStation 4](https://img.shields.io/badge/platform-PlayStation%204-f5e693?style=for-the-badge&logo=playstation&logoColor=ffffff)
+![Firmware range: 5.05 to 14.00](https://img.shields.io/badge/firmware-5.05--14.00-151515?style=for-the-badge&color=f5e693)
+![WebKit](https://img.shields.io/badge/Exploit-WebKit-151515?style=for-the-badge&color=f5e693)
 
 [![GHCR container images](https://img.shields.io/badge/GHCR-container%20images-2496ED?logo=docker&logoColor=white)](https://github.com/Chrisser73/ps4-host-offline-goldhen/pkgs/container/ps4-host-offline-goldhen)
 [![License](https://img.shields.io/github/license/Chrisser73/ps4-host-offline-goldhen?label=license)](LICENSE)
 [![User Guide DNS](https://img.shields.io/badge/User%20Guide-local%20DNS-2ea44f)](#step-4-configure-local-dns-adguard-example)
 [![User Guide Proxy](https://img.shields.io/badge/User%20Guide-reverse%20proxy-2ea44f)](#step-5-configure-the-http-proxy-nginx-proxy-manager-example)
 
-<div align="center">
+
 
 ### Preview
 ![PS4 Host Offline GoldHEN banner](docs/preview.png)
@@ -76,7 +76,7 @@ In the **normal PS4 browser**, open e.g.:
 | --- | --- |
 | Home | `http://<host-ip>:8135/` |
 | Firmware 14.00 | `http://<host-ip>:8135/1400/index.html` |
-| Firmware 13.52 | `http://<host-ip>:8135/1352/index.html` |
+| or Firmware 13.52 | `http://<host-ip>:8135/1352/index.html` |
 
 **Choose the page matching your firmware.** Test offline caching on the PS4; MIME type alone does not prove it works.
 
@@ -97,7 +97,7 @@ In your router, reserve LAN IPs for the **Docker/AdGuard host** (`<host-ip>`) an
 1. **Settings → Client settings:** add or edit a persistent client named `PS4`. Set **Identifier** to `<ps4-ip>`. If the router provides DHCP, identify it by IP, not MAC.
 2. **If retaining an existing blocking DNS:** open this client's **Upstream DNS servers**, enable individual upstreams and enter that provider's address. Save. This upstream is **not needed** for the local host or User Guide redirect; keep it only if you still rely on its filtering. It will not resolve other domains while offline. “Processed” does not confirm upstream blocking.
 3. **Optional local update rule:** enable AdGuard protection and **Block domains using filters and hosts files** for this client. Under **Filters → Custom filtering rules**, add:
-
+### Update Blocker Rule
    ```text
    ||ps4.update.playstation.net^$client=<ps4-ip>
    ```
