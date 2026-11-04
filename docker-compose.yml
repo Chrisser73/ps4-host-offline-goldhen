@@ -4,5 +4,6 @@ services:
     restart: unless-stopped
     ports:
       - "8135:80"
-    labels:
-      com.centurylinklabs.watchtower.enable: "true"
+    # e.g. if you want to use watchtower
+    #labels:
+    #  com.centurylinklabs.watchtower.enable: "true"

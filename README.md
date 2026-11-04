@@ -1,13 +1,27 @@
 ![PS4 Host Offline GoldHEN banner](docs/banner.png)
+# Self-hosted PS4 WebKit-Exploit Host for GoldHEN (Multi-Arch): FW 5.05 – 14.00
+<div align="center">
 
-# Self-hosted PS4 Exploit Host for GoldHEN (Multi-Arch)
+###
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-Ko--fi-967B69?style=for-the-badge&logo=ko-fi&logoColor=white&labelColor=4F3727&color=F6D55C)](https://ko-fi.com/crysercore)
+###
+</div>
+
+<img src="https://img.shields.io/badge/platform-PlayStation%204-f5e693?style=for-the-badge&logo=playstation&logoColor=ffffff" alt="Platform: PlayStation 4">
+<img src="https://img.shields.io/badge/firmware-5.05--14.00-151515?style=for-the-badge&color=f5e693" alt="Firmware range: 5.05 to 14.00"> <img src="https://img.shields.io/badge/Exploit-WebKit-151515?style=for-the-badge&color=f5e693" alt="WebKit">
 
 [![GHCR container images](https://img.shields.io/badge/GHCR-container%20images-2496ED?logo=docker&logoColor=white)](https://github.com/Chrisser73/ps4-host-offline-goldhen/pkgs/container/ps4-host-offline-goldhen)
 [![License](https://img.shields.io/github/license/Chrisser73/ps4-host-offline-goldhen?label=license)](LICENSE)
 [![User Guide DNS](https://img.shields.io/badge/User%20Guide-local%20DNS-2ea44f)](#step-4-configure-local-dns-adguard-example)
 [![User Guide Proxy](https://img.shields.io/badge/User%20Guide-reverse%20proxy-2ea44f)](#step-5-configure-the-http-proxy-nginx-proxy-manager-example)
 
-Run the [psx8 PSPulse PS4 exploit host](https://github.com/psx8/psx8.github.io) and its bundled GoldHEN payloads on your own home server or PC. This project packages the upstream site in a small multi-architecture Nginx image, then shows how to add a local PS4 update-domain block and open the right firmware page from the PS4 User Guide.
+<div align="center">
+
+### Preview
+![PS4 Host Offline GoldHEN banner](docs/preview.png)
+</div>
+
+Run the [psx8 PSPulse PS4 exploit host](https://github.com/psx8/psx8.github.io), its bundled GoldHEN payloads, and the [Afterglow 14.00 host](https://github.com/well0nez/afterglow-web) on your own home server or PC. This project packages both upstream static hosts in a small multi-architecture Nginx image, then shows how to add a local PS4 update-domain block and open the right firmware page from the PS4 User Guide.
 
 #### Workflow overview:
 ![PS4 host setup workflow](docs/workflow.svg)
@@ -16,7 +30,7 @@ Run the [psx8 PSPulse PS4 exploit host](https://github.com/psx8/psx8.github.io) 
 
 | | Feature | What it does |
 | --- | --- | --- |
-| 🏠 | Self-hosted PS4 payloads | Serve psx8's pages and GoldHEN on port `8135`. |
+| 🏠 | Self-hosted PS4 payloads | Serve PSPulse and Afterglow host pages, including GoldHEN/ps4-hen flows for firmware 5.05–14.00, on port `8135`. |
 | 📴 | Offline-ready hosting | Serve the downloaded image locally without internet; downloads and updates need internet. |
 | 💾 | Offline cache | Correct AppCache MIME type; test offline use on the PS4. |
 | 🛡️ | Optional DNS rules | Block selected update domains for the PS4; not a guarantee against updates. |
@@ -39,23 +53,29 @@ Replace the examples: `hen.local` (your chosen LAN name), `<host-ip>` / `<ps4-ip
 **Only need the browser host?** Complete Steps 2–3. Steps 4–8 are optional.
 
 ## Step 2: Start the Docker host
+### Use ``docker-compose.yml`` from repo:
+### [docker-compose.yml](https://github.com/Chrisser73/ps4-host-offline-goldhen/blob/4f21ae7f72ae444cbc634e033f00398365f68984/docker-compose.yml)
 
-On your Docker host (home server or PC), **if Git is installed**:
-
+OR: On your Docker host (home server or PC), **if Git is installed**:
 ```sh
 git clone https://github.com/Chrisser73/ps4-host-offline-goldhen.git
 cd ps4-host-offline-goldhen
+```
+
+Then start container:
+```sh
 docker compose up -d
 docker compose ps
 ```
 
 The image includes the web files; `www` is not needed. **Pull fails?** Check the GitHub image workflow and GHCR package visibility (or authenticate to GHCR).
 
-In the **normal PS4 browser**, open:
+In the **normal PS4 browser**, open e.g.:
 
 | Page | URL |
 | --- | --- |
 | Home | `http://<host-ip>:8135/` |
+| Firmware 14.00 | `http://<host-ip>:8135/1400/index.html` |
 | Firmware 13.52 | `http://<host-ip>:8135/1352/index.html` |
 
 **Choose the page matching your firmware.** Test offline caching on the PS4; MIME type alone does not prove it works.
@@ -108,7 +128,7 @@ Save. Use an **IP/hostname**, not a URL or path, in “Forward Hostname / IP”.
 ## Step 6: Set PS4 DNS and test the browser
 
 1. **PS4 → Settings → Network → Set Up Internet Connection → Custom:** keep your usual settings; for **DHCP Host Name**, choose **Do Not Specify**. Set **Primary DNS** to `<host-ip>` (the AdGuard server). Do not set a secondary DNS that bypasses AdGuard; if accepted, you can keep `0.0.0.0`. No router-wide DNS change is needed.
-2. In the **normal PS4 browser**, open `http://hen.local/` (firmware selector) or `http://hen.local/1352/index.html` **only for firmware 13.52**. Confirm new PS4 entries in **AdGuard → Query log**. Fix this step before continuing.
+2. In the **normal PS4 browser**, open `http://hen.local/` (firmware selector) or e.g. `http://hen.local/1400/index.html` **only for firmware 14.00**. Confirm new PS4 entries in **AdGuard → Query log**. Fix this step before continuing.
 
 ## Step 7: Redirect the PS4 User Guide
 
@@ -205,11 +225,11 @@ To build from the latest [psx8 upstream](https://github.com/psx8/psx8.github.io)
 | Windows | `start.bat` | Git + Docker Desktop |
 | Linux | `make start` | Git + GNU Make + Docker Compose |
 
-Both commands clone `www` on first run, fast-forward it **only if clean**, build `ps4-host-local:latest`, and start port `8135`. Local builds disable the Watchtower label. On Linux, `make setup` updates without building; `make build` updates and builds without starting. For the published image, use `docker compose up -d` instead.
+Both commands build `ps4-host-local:latest` and start port `8135`. During the Docker build, PSPulse and Afterglow are fetched and the repository's versioned 14.00, selector, and color overlays are applied. Local builds disable the Watchtower label. For the published image, use `docker compose up -d` instead.
 
 ## Updates
 
-On every push to `main`, GitHub Actions fetches upstream and publishes AMD64/ARM64 images. **Upstream-only changes do not trigger a build.** To update the published image manually:
+On every push to `main`, GitHub Actions builds a fresh PSPulse and Afterglow (firmware 14.00) host with the repository's overlays, then publishes AMD64/ARM64 images. **Upstream-only changes do not trigger a build.** To update the published image manually:
 
 ```sh
 docker compose pull
@@ -221,6 +241,7 @@ docker compose up -d
 ## Credits and license
 
 - **Upstream host, exploit code, and payloads:** [psx8/psx8.github.io](https://github.com/psx8/psx8.github.io).
+- **Firmware 14.00 host:** [well0nez/afterglow-web](https://github.com/well0nez/afterglow-web) (AGPL-3.0); its bundled license and attribution files are retained in `/1400` in the image.
 - **This repository's Docker, Nginx, workflow, and documentation files:** [MIT License](LICENSE).
 - **Upstream host and assets:** Not covered by this repository's MIT license. Check upstream redistribution rights before publishing an image containing those files.
 
